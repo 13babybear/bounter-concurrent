@@ -1,8 +1,6 @@
 package com.bounter;
 
-import com.bounter.concurrent.ArrayListThread;
-import com.bounter.concurrent.JoinThread;
-import com.bounter.concurrent.ReentrantLockThread;
+import com.bounter.concurrent.*;
 
 /**
  * Hello world!
@@ -24,12 +22,28 @@ public class App {
 //        t2.join();
 //        System.out.println(ArrayListThread.intList.size());
 
-        Thread t1 = new Thread(new ReentrantLockThread());
-        Thread t2 = new Thread(new ReentrantLockThread());
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
-        System.out.println(ReentrantLockThread.count);
+//        Thread t1 = new Thread(new ReentrantLockThread());
+//        Thread t2 = new Thread(new ReentrantLockThread());
+//        t1.start();
+//        t2.start();
+//        t1.join();
+//        t2.join();
+//        System.out.println(ReentrantLockThread.count);
+
+//        for (int i=0; i<20; i++) {
+//            new Thread(new SemaphoreThread()).start();
+//        }
+
+        for (int i=0; i<10; i++) {
+            new Thread(new CountDownLatchThread()).start();
+        }
+        Thread.sleep(1000);
+        CountDownLatchThread.startSignal.countDown();
+
+        //当前线程等待countDownLatch上的所有线程执行完成
+//        CountDownLatchThread.doneSignal.await();
+        System.out.println("GO!");
+
+
     }
 }
