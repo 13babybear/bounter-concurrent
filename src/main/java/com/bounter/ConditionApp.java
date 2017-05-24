@@ -17,7 +17,7 @@ public class ConditionApp {
         t.start();
 
         Thread.sleep(1000);
-        
+
         lock.lock();
         System.out.println("唤醒线程" + t.getName());
         condition.signal();
