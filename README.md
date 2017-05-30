@@ -1,2 +1,2 @@
 # bounter-concurrent
-一个演示Java并发与多线程的简单项目
+Java并发工具类的一些简单用法
